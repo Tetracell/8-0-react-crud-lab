@@ -1,7 +1,9 @@
 import React from "react";
+import Error from "../common/Error";
 
 // Helper functions
 import { getAllShows } from "../../api/fetch";
+import ShowLising from "./ShowsListing";
 
 class ShowsIndex extends React.Component {
   constructor(props) {
@@ -22,7 +24,16 @@ class ShowsIndex extends React.Component {
   }
 
   render() {
-    return <p>Shows List</p>;
+    return (
+      <section className="shows-index-wrapper">
+        <h2>All Shows</h2>
+        <section className="shows-index">
+          {this.state.shows.map((show) => {
+            return <ShowLising show={show} key={show.id} />;
+          })}
+        </section>
+      </section>
+    );
   }
 }
 
