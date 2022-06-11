@@ -8,7 +8,6 @@ import { getAllShows } from "../../api/fetch";
 import { Switch, Route, withRouter } from "react-router-dom";
 import ShowsListing from "./ShowsListing";
 
-
 class ShowsIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +19,11 @@ class ShowsIndex extends React.Component {
 
   handleDelete(e) {
     const id = e.target.value;
-    console.log("I have been pressed");
+    //console.log("I have been pressed");
     try {
       destroyShow(id).then(() => {
-        const index = this.state.filter.findIndex((show) => show.id === id);
         const updatedShows = [...this.state.shows];
+        const index = this.state.shows.findIndex((show) => show.id === id); // destroyShow(id).then(() => {const index = this.state.filter.findIndex((show) => show.id === id); previous line
         updatedShows.splice(index, 1);
         this.setState({ shows: updatedShows });
         this.props.history.push("/shows");
@@ -33,8 +32,6 @@ class ShowsIndex extends React.Component {
       console.log(err);
     }
   }
-
-  
 
   componentDidMount() {
     getAllShows()

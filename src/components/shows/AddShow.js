@@ -39,7 +39,7 @@ export default function AddShow() {
         ></input>
         <br></br>
         <button
-          onClick={handleAdd(titleText, descriptionText)}
+          onClick={(() => handleAdd(titleText, descriptionText))} // Wrapped in anon function to prevent firing on every udpate
           className="submit"
         >Add Show</button>
       </form>
