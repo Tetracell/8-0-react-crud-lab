@@ -15,12 +15,17 @@ export function destroyShow(id) {
   });
 }
 
-export function addShow() { // What is going to be passed in? Title, Description, Duration, Year...
+export function createShow(title, description) {
+  let encodedUrl = new URLSearchParams();
+  encodedUrl.append("title", title)
+  encodedUrl.append("description", description)
+  // What is going to be passed in? Title, Description, Duration, Year...
   const options = {
     method: "POST",
-    headers: { "content-type": "application/x-www-form-urlencoded" }
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: encodedUrl
   };
-  return fetch(`${URL}/shows/`, options).then((response)=>{
+  return fetch(`${URL}/shows/`, options).then((response) => {
     return response.json();
-  })
+  });
 }
