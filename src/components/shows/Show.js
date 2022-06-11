@@ -1,14 +1,15 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "./Show.css";
-import Error from "../common/Error"
+import Error from "../common/Error";
+import { withRouter } from "react-router-dom";
 
 export default function Show({ shows, handleDelete }) {
   const { id } = useParams();
-  const { history } = useHistory();
+  const history = useHistory();
   const show = shows.find((show) => show.id === id);
   const handleClick = () => {
-    history.pushState("/shows");
+    history.push("/shows");
   };
   return (
     <section className="shows-class-wrapper">
@@ -35,10 +36,14 @@ export default function Show({ shows, handleDelete }) {
             </aside>
             <article>{show.description}</article>
             <aside>
-              <button value = {id} onClick = { handleDelete } class="delete">Remove show</button>
+              <button value={id} onClick={handleDelete} class="delete">
+                Remove show
+              </button>
             </aside>
             <aside>
-              <button value = {id} onClick = { handleClick } class="delete">Go back</button>
+              <button value={id} onClick={handleClick} class="delete">
+                Go back
+              </button>
             </aside>
           </section>
         </>

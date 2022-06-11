@@ -6,6 +6,7 @@ import Nav from "./components/common/Nav";
 import Home from "./components/home/Home";
 import ShowsIndex from "./components/shows/ShowsIndex";
 import MoviesIndex from "./components/movies/MoviesIndex";
+import AddShow from "./components/shows/AddShow"
 import Footer from "./components/common/Footer";
 
 const App = () => (
@@ -20,6 +21,9 @@ const App = () => (
       </Route>
       <Route path="/movies">
         <MoviesIndex />
+      </Route>
+      <Route path="/addshow">
+        <AddShow />
       </Route>
     </Switch>
     <Footer />

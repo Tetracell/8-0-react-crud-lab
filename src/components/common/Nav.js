@@ -19,6 +19,9 @@ export const Nav = () => {
           <li>
             <Link to="/movies">All Movies</Link>
           </li>
+          <li>
+            <Link to="/addshow">Add Show</Link>
+          </li>
         </ul>
       </nav>
     </header>

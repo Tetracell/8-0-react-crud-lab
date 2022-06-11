@@ -7,3 +7,20 @@ export function getAllMovies() {
 export function getAllShows() {
   return fetch(`${URL}/shows`).then((response) => response.json());
 }
+
+export function destroyShow(id) {
+  const options = { method: "DELETE" };
+  return fetch(`${URL}/shows/${id}`, options).then((response) => {
+    return response.json();
+  });
+}
+
+export function addShow() { // What is going to be passed in? Title, Description, Duration, Year...
+  const options = {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" }
+  };
+  return fetch(`${URL}/shows/`, options).then((response)=>{
+    return response.json();
+  })
+}

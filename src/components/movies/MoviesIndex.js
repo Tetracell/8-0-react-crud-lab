@@ -26,6 +26,9 @@ class MoviesIndex extends React.Component {
   }
 
   render() {
+    if (this.state.loadingError) {
+      <Error />;
+    }
     return (
       <Switch>
         <Route path="/movies/:id">
