@@ -14,6 +14,7 @@ export function destroyShow(id) {
     return response.json();
   });
 }
+
 export function createShow(title, description) {
   let encodedUrl = new URLSearchParams();
   encodedUrl.append("title", title);
@@ -27,4 +28,17 @@ export function createShow(title, description) {
   return fetch(`${URL}/shows/`, options).then((response) => {
     return response.json();
   });
+}
+
+export function createMovie(title, description) {
+  let encodedUrl = new URLSearchParams();
+  encodedUrl.append("title", title);
+  encodedUrl.append("description", description);
+
+  const options = {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: encodedUrl,
+  };
+  return fetch(`${URL}/movies/`, options); // Do I need the .then return?
 }
